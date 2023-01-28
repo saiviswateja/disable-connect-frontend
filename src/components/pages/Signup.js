@@ -13,20 +13,21 @@ const Signup = () => {
 
   // handling submit
   const handleSubmit = async (e) => {
+    console.log("working");
     e.preventDefault();
-    var fname = e.target[0].value;
-    var lname = e.target[1].value;
-    var mobile = e.target[2].value;
-    var emergency = e.target[3].value;
-    var age = e.target[4].value;
-    var email = e.target[5].value;
-    var typeOfDis = e.target[6].value;
-    var pass1 = e.target[7].value;
-    var pass2 = e.target[8].value;
+    // var fname = e.target[0].value;
+    // var lname = e.target[1].value;
+    // var mobile = e.target[2].value;
+    // var emergency = e.target[3].value;
+    // var age = e.target[4].value;
+    // var email = e.target[5].value;
+    // var typeOfDis = e.target[6].value;
+    // var pass1 = e.target[7].value;
+    // var pass2 = e.target[8].value;
 
-    if (pass1 !== pass2) {
-      alert("password does not match");
-    }
+    // if (pass1 !== pass2) {
+    //   alert("password does not match");
+    // }
 
     try {
       const { data } = await axios.post(
@@ -34,12 +35,13 @@ const Signup = () => {
         user
       );
 
+      console.log("data is ", data);
       if (data.success === true) {
         Cookies.set("token", data.token, {
           expires: 20,
           path: "/",
         });
-        navigate("/todo");
+        navigate("/login");
       }
     } catch (error) {
       error.response.data?.validMessage &&
@@ -59,13 +61,13 @@ const Signup = () => {
             type="text"
             placeholder="First Name"
             className="p-3 text-base rounded-lg border border-gray-300"
-            onChange={(e) => setUser({ ...user, name: e.target.value })}
+            onChange={(e) => setUser({ ...user, firstName: e.target.value })}
           />
           <input
             type="text"
             placeholder="Last Name"
             className="p-3 text-base rounded-lg border border-gray-300"
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            onChange={(e) => setUser({ ...user, lastName: e.target.value })}
           />
         </div>
         <div className="flex gap-4">
@@ -73,13 +75,15 @@ const Signup = () => {
             type="text"
             placeholder="Mobile"
             className="p-3 text-base rounded-lg border border-gray-300"
-            onChange={(e) => setUser({ ...user, name: e.target.value })}
+            onChange={(e) => setUser({ ...user, mobileNumber: e.target.value })}
           />
           <input
             type="text"
             placeholder="Emergency Mobile"
             className="p-3 text-base rounded-lg border border-gray-300"
-            onChange={(e) => setUser({ ...user, name: e.target.value })}
+            onChange={(e) =>
+              setUser({ ...user, emergencyContact: e.target.value })
+            }
           />
         </div>
         <input
@@ -104,7 +108,6 @@ const Signup = () => {
             type="password"
             placeholder="Confirm Password"
             className="p-3 text-base rounded-lg border border-gray-300"
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
         </div>
         <button className="p-3 text-base font-bold active:bg-orange-500 rounded-lg bg-orange-400 text-white duration-50 ease-in-out">
