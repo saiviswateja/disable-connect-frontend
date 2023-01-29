@@ -65,7 +65,10 @@ const Height_weight = () => {
           </div>
         </div>
       </form>
-      <button className="mt-8 w-2/12 p-3 text-base font-bold active:bg-gray-800  bg-black text-white duration-50 ease-in-out">
+      <button
+        onClick={() => navigate("/dashboard")}
+        className="mt-8 w-2/12 p-3 text-base font-bold active:bg-gray-800  bg-black text-white duration-50 ease-in-out"
+      >
         Next
       </button>
     </div>
