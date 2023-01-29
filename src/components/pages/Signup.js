@@ -13,21 +13,7 @@ const Signup = () => {
 
   // handling submit
   const handleSubmit = async (e) => {
-    console.log("working");
     e.preventDefault();
-    // var fname = e.target[0].value;
-    // var lname = e.target[1].value;
-    // var mobile = e.target[2].value;
-    // var emergency = e.target[3].value;
-    // var age = e.target[4].value;
-    // var email = e.target[5].value;
-    // var typeOfDis = e.target[6].value;
-    // var pass1 = e.target[7].value;
-    // var pass2 = e.target[8].value;
-
-    // if (pass1 !== pass2) {
-    //   alert("password does not match");
-    // }
 
     try {
       const { data } = await axios.post(
@@ -53,63 +39,27 @@ const Signup = () => {
     <div className="w-full h-full flex justify-center items-center bg-orange-100">
       <form
         onSubmit={handleSubmit}
-        className="p-10 lg:w-fit flex flex-col gap-4 bg-white rounded-lg shadow-lg"
+        className="p-10 lg:w-3/12 flex flex-col gap-4 bg-white rounded-lg shadow-lg"
       >
         <h1 className="text-2xl font-extrabold text-center">SignUp</h1>
-        <div className="flex gap-4">
-          <input
-            type="text"
-            placeholder="First Name"
-            className="p-3 text-base rounded-lg border border-gray-300"
-            onChange={(e) => setUser({ ...user, firstName: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            className="p-3 text-base rounded-lg border border-gray-300"
-            onChange={(e) => setUser({ ...user, lastName: e.target.value })}
-          />
-        </div>
-        <div className="flex gap-4">
-          <input
-            type="text"
-            placeholder="Mobile"
-            className="p-3 text-base rounded-lg border border-gray-300"
-            onChange={(e) => setUser({ ...user, mobileNumber: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Emergency Mobile"
-            className="p-3 text-base rounded-lg border border-gray-300"
-            onChange={(e) =>
-              setUser({ ...user, emergencyContact: e.target.value })
-            }
-          />
-        </div>
+        <input
+          type="text"
+          placeholder="Full Name"
+          className="p-3 text-base rounded-lg border border-gray-300"
+          onChange={(e) => setUser({ ...user, name: e.target.value })}
+        />
         <input
           type="email"
           placeholder="Email Address"
           className="p-3 text-base rounded-lg border border-gray-300"
           onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
-        <select>
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-        </select>
-        <div className="flex gap-4">
-          <input
-            type="password"
-            placeholder="Password"
-            className="p-3 text-base rounded-lg border border-gray-300"
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            className="p-3 text-base rounded-lg border border-gray-300"
-          />
-        </div>
+        <input
+          type="password"
+          placeholder="Password"
+          className="p-3 text-base rounded-lg border border-gray-300"
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+        />
         <button className="p-3 text-base font-bold active:bg-orange-500 rounded-lg bg-orange-400 text-white duration-50 ease-in-out">
           Submit
         </button>
