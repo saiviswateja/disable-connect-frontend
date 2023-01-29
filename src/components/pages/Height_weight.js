@@ -6,7 +6,7 @@ import userContext from "../../context/userContext";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const Login = () => {
+const Height_weight = () => {
   // navigator
   const navigate = useNavigate();
 
@@ -39,26 +39,37 @@ const Login = () => {
   };
   return (
     <div className="w-full h-full flex flex-col justify-center items-center bg-white">
-      <h1 className="text-3xl font-bold text-orange-400">Choose gender</h1>
       <form
         onSubmit={handleSubmit}
         className="p-10 lg:w-3/12 flex flex-col gap-4 bg-white rounded-lg shadow-lg"
       >
-        <button className="p-3 pl-6  text-left text-base font-bold active:bg-orange-600 border border-black bg-white text-black duration-50 ease-in-out">
-          👩🏻‍🦰<span className="ml-5">Women</span>
-        </button>
-        <button className="p-3 pl-6 text-left text-base font-bold active:bg-orange-600 border border-black  bg-white text-black duration-50 ease-in-out">
-          👨🏻<span className="ml-5">Men</span>
-        </button>
+        <div className="flex justify-between">
+          <div className="flex flex-col items-end">
+            <h1 className="text-lg font-bold text-orange-400">Select height</h1>
+            <input
+              type="number"
+              placeholder="175"
+              className="p-3 pl-6 w-24 text-base font-bold border border-gray-200 bg-white text-black duration-50 ease-in-out"
+            />
+            <span className="mb-2 ml-2 text-md">cm</span>
+          </div>
+          <div className="w-10 h-10"></div>
+          <div className="flex  flex-col items-end">
+            <h1 className="text-lg font-bold text-orange-400">Select height</h1>
+            <input
+              type="number"
+              placeholder="60.3"
+              className="p-3 pl-6 w-24 text-base font-bold border border-gray-200 bg-white text-black duration-50 ease-in-out"
+            />
+            <span className="mb-2 ml-2 text-md">kg</span>
+          </div>
+        </div>
       </form>
-      <Link
-        className="mt-8 w-2/12 p-3 text-base font-bold active:bg-gray-800  bg-black text-white duration-50 ease-in-out"
-        to="/height_weight"
-      >
+      <button className="mt-8 w-2/12 p-3 text-base font-bold active:bg-gray-800  bg-black text-white duration-50 ease-in-out">
         Next
-      </Link>
+      </button>
     </div>
   );
 };
 
-export default Login;
+export default Height_weight;
