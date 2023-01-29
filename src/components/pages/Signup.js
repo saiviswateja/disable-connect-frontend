@@ -22,12 +22,13 @@ const Signup = () => {
       );
 
       console.log("data is ", data);
-      if (data.success === true) {
+      if (data.user!=null) {
         Cookies.set("token", data.token, {
           expires: 20,
           path: "/",
         });
-        navigate("/login");
+        Cookies.set("user", JSON.stringify(data.user));
+        navigate("/gender");
       }
     } catch (error) {
       error.response.data?.validMessage &&

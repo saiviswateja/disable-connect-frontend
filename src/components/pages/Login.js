@@ -17,6 +17,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
+      console.log("trying to login");
       const { data } = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/signIn`,
         user
@@ -28,7 +29,12 @@ const Login = () => {
         //   expires: 20,
         //   path: "/",
         // });
-        navigate("/");
+
+        // Cookies.set("token", data.token, {
+        //   expires: 20,
+        //   path: "/",
+        // });
+        navigate("/gender");
       }
     } catch (error) {
       console.log("error is here ", error);

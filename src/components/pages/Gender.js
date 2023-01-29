@@ -6,6 +6,7 @@ import userContext from "../../context/userContext";
 import axios from "axios";
 import Cookies from "js-cookie";
 
+
 const Login = () => {
   // navigator
   const navigate = useNavigate();
@@ -17,18 +18,18 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/signIn`,
-        user
-      );
+      // const { data } = await axios.post(
+      //   `${process.env.REACT_APP_SERVER_URL}/signIn`,
+      //   user
+      // );
 
-      console.log("data is ", data);
-      if (data) {
-        // Cookies.set("token", data.token, {
-        //   expires: 20,
-        //   path: "/",
-        // });
-        navigate("/");
+      // console.log("data is ", data);
+      if (true) {
+        let user = Cookies.get("user");
+        console.log("came here");
+        console.log(JSON.parse(user));
+        user.gender = e.target.
+        navigate("/height_weight");
       }
     } catch (error) {
       console.log("error is here ", error);
