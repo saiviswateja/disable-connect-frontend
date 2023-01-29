@@ -38,39 +38,22 @@ const Login = () => {
     }
   };
   return (
-    <div className="w-full h-full flex justify-center items-center bg-orange-100">
+    <div className="w-full h-full flex flex-col justify-center items-center bg-white">
+      <h1 className="text-3xl font-bold text-orange-400">Choose gender</h1>
       <form
         onSubmit={handleSubmit}
         className="p-10 lg:w-3/12 flex flex-col gap-4 bg-white rounded-lg shadow-lg"
       >
-        <h1 className="text-2xl font-extrabold text-center">Login</h1>
-        <input
-          type="email"
-          placeholder="Email Address"
-          className="p-3 text-base rounded-lg border border-gray-300"
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="p-3 text-base rounded-lg border border-gray-300"
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-        />
-        <button className="p-3 text-base font-bold active:bg-orange-600 rounded-lg bg-orange-400 text-white duration-50 ease-in-out">
-          Submit
+        <button className="p-3 pl-6  text-left text-base font-bold active:bg-orange-600 border border-black bg-white text-black duration-50 ease-in-out">
+          👩🏻‍🦰<span className="ml-5">Women</span>
         </button>
-        <hr />
-        <div className="text-center">
-          <h3 className="text-sm text-gray-400">Don't have account yet</h3>
-          <h3 className="text-base text-gray-600">let's create</h3>
-        </div>
-        <Link
-          className="p-3 text-base font-bold text-center active:bg-orange-500 rounded-lg bg-orange-400 text-white duration-50 ease-in-out"
-          to="/signup"
-        >
-          SignUp
-        </Link>
+        <button className="p-3 pl-6 text-left text-base font-bold active:bg-orange-600 border border-black  bg-white text-black duration-50 ease-in-out">
+          👨🏻<span className="ml-5">Men</span>
+        </button>
       </form>
+      <button className="mt-8 w-2/12 p-3 text-base font-bold active:bg-gray-800  bg-black text-white duration-50 ease-in-out">
+        Next
+      </button>
     </div>
   );
 };

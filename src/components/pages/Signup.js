@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 // package to store cookie in browser
@@ -36,7 +36,7 @@ const Signup = () => {
     }
   };
   return (
-    <div className="w-full h-full flex justify-center items-center bg-orange-100">
+    <div className="w-full h-full flex justify-center items-center">
       <form
         onSubmit={handleSubmit}
         className="p-10 lg:w-3/12 flex flex-col gap-4 bg-white rounded-lg shadow-lg"
@@ -63,6 +63,17 @@ const Signup = () => {
         <button className="p-3 text-base font-bold active:bg-orange-500 rounded-lg bg-orange-400 text-white duration-50 ease-in-out">
           Submit
         </button>
+        <hr />
+        <div className="text-center">
+          <h3 className="text-sm text-gray-400">Already have a account</h3>
+          <h3 className="text-base text-gray-600">let's login</h3>
+        </div>
+        <Link
+          className="p-3 text-base font-bold text-center active:bg-orange-500 rounded-lg bg-orange-400 text-white duration-50 ease-in-out"
+          to="/login"
+        >
+          Login
+        </Link>
       </form>
     </div>
   );
